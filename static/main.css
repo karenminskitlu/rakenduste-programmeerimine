@@ -4,7 +4,7 @@ body {
 
 .header {
     box-shadow: 0px 2px 6px 0px rgba(0,0,0,0.2);
-    background: green;
+    background: rgb(177,224,223);
     padding: 10px 25px;
     display: flex;
     justify-content: space-between;
@@ -29,8 +29,9 @@ body {
 
 .item {
     box-shadow: 0px 2px 6px 0px rgba(0,0,0,0.2);
+    background: rgb(177,224,223);
     border-radius: 5px;
-    padding: 5px;
+    padding: 20px;
 }
 
 .item:hover {
@@ -40,20 +41,27 @@ body {
 }
 
 .item img {
-    width: 300px;
-    padding: 5px;
+    height: 28em;
+    width: 20em;
+    padding: 15px;
 }
 
 .item__title {
-    color: brown;
+    color: white;
     font-size: 18px;
 }
 
 .item__price {
-    color: green;
+    color: white;
     font-size: 12px;
 }
 
 .content a {
     text-decoration: none;
+}
+
+button {
+    border-radius: 12px;
+    font-size: 12px;
+    padding: 6px 16px;
 }
