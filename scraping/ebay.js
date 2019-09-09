@@ -14,7 +14,7 @@
         const img = imgs[0];
 
         const src = img.dataset.src;
-        if(!src) return;
+        if (!src) return;
 
         const title = item.getElementsByClassName(titleClass)[0].textContent;
         const price = item.getElementsByClassName(priceClass)[0].textContent;

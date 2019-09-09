@@ -24,7 +24,7 @@ const titleElement = document.createElement("h2");
 titleElement.textContent = title;
 titleElement.className = "item__title";
 
-const textElement= document.createElement("p");
+const textElement = document.createElement("p");
 textElement.textContent = "A beautiful authentic hand-made high-quality dreamcatcher";
 textElement.className = "item__description";
 
@@ -42,4 +42,4 @@ rightContainer.append(costElement);
 window.addEventListener("load", () => {
     const app = document.getElementById("item-body");
     app.append(container);
-})
+});
