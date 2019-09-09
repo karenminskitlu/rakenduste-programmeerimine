@@ -41,19 +41,43 @@ body {
 }
 
 .item img {
-    height: 28em;
+    height: 24em;
     width: 20em;
     padding: 15px;
 }
 
 .item__title {
     color: white;
-    font-size: 18px;
+    font-size: 25px;
 }
 
 .item__price {
     color: white;
-    font-size: 12px;
+    font-size: 15px;
+}
+
+.item__description {
+    color: white;
+    font-size: 20px;
+}
+
+.itemContainer {
+    box-shadow: 0px 2px 6px 0px rgba(0,0,0,0.2);
+    background: rgb(177,224,223);
+    width: 90%;
+    padding: 40px 20px;
+    border-radius: 12px;
+    display: flex;
+}
+
+
+.itemRightContainer {
+    margin-left: 100px;
+}
+
+
+.itemContainer .item__image {
+    width: 300px;
 }
 
 .content a {
