@@ -436,11 +436,38 @@ const fairyLights = [{
     "category": "fairy lights"
 }];
 
+const  categories = {
+    DREAMCATCHER: "dreamcatcher",
+    FAIRYLIGHT: "fairyLight"
+} 
+
+const selectedCategory = categories.DREAMCATCHER;
+
 function createItems(){
     const root = document.getElementById("item-list")
-    dreamcatchers.forEach(dreamcatcher => {
-        const element = createItemElement(dreamcatcher);
+
+    let items = [];
+
+    if (selectedCategory  === categories.DREAMCATCHER) {
+        items = dreamcatchers;
+    }
+    else if (selectedCategory  === categories.FAIRYLIGHT) {
+        items = fairyLights;
+    }
+
+    items.forEach(item => {
+        const element = createItemElement(item);
         root.append(element);
+    });
+}
+
+function setupCategoryListener(){
+    const dropdown =  document.getElementById("category-dropdown");
+
+    dropdown.addEventListener('change', (event) => {
+        console.log(event.target.value);
+        //const result = document.querySelector('.result');
+        //result.textContent = `asd $(event.target.value)`;
     });
 }
 
@@ -473,6 +500,7 @@ function createItemElement(item){
 
 window.addEventListener("load", () => {
     createItems();
+    setupCategoryListener();
     //const app = document.getElementById("item-body");
     //app.append(container);
 });

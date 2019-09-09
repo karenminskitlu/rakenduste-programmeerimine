@@ -90,3 +90,7 @@ button {
     font-size: 12px;
     padding: 6px 16px;
 }
+
+.category-wrapper {
+    padding: 25px;
+}
