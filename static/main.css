@@ -10,6 +10,8 @@ body {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 25px;
+    position: sticky;
+    top:0;
 }
 
 .header__logo {
@@ -26,6 +28,8 @@ body {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+    width: 1400px;
+    margin: 0 auto;
 }
 
 .item {
