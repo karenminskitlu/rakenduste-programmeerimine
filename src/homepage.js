@@ -1,4 +1,6 @@
-console.log("itemslist.js loaded");
+const utils = require("./utils.js");
+
+console.log("homepage.js loaded");
 
 
 // DREAMCATCHERS
@@ -460,7 +462,7 @@ function createItems() {
     }
 
     items.forEach((item) => {
-        const element = createItemElement(item);
+        const element = utils.createItemElement(item);
         root.append(element);
     });
 }
@@ -474,8 +476,14 @@ function setupCategoryListener() {
     });
 }
 
-window.addEventListener("load", () => {
-    console.log("Window loaded in itemsList.js");
+function setup(){
+    // run only at homepage
+    const root = document.getElementById("item-list");
+    if (!root) return;
     createItems();
     setupCategoryListener();
-});
+}
+
+module.exports = {
+    setup,
+}
