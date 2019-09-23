@@ -5,11 +5,11 @@ const categories = {
 
 const generateRandomItemList = n => {
   const arr = [];
-  for (let i = 1; i <= n; i++) {
+  for(let i = 1; i<= n; i++){
     const item = {
       name: "item" + i,
       cost: getRandomIntInclusive(0, 1000),
-      category: Object.values(categories)[getRandomIntInclusive(0, 1)]
+      category: Object.values(categories)[getRandomIntInclusive(0,1)]
     };
     arr.push(item);
   }
