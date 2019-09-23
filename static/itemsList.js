@@ -436,42 +436,42 @@ const fairyLights = [{
     "category": "fairy lights"
 }];
 
-const  categories = {
+const categories = {
     DREAMCATCHER: "dreamcatcher",
     FAIRYLIGHT: "fairyLight"
-} 
+}
 
-const selectedCategory = categories.DREAMCATCHER;
+let selectedCategory = categories.DREAMCATCHER;
 
-function createItems(){
+function createItems() {
     const root = document.getElementById("item-list")
+
+    root.innerHTML = null; // reset
 
     let items = [];
 
-    if (selectedCategory  === categories.DREAMCATCHER) {
+    if (selectedCategory === categories.DREAMCATCHER) {
         items = dreamcatchers;
-    }
-    else if (selectedCategory  === categories.FAIRYLIGHT) {
+    } else if (selectedCategory === categories.FAIRYLIGHT) {
         items = fairyLights;
     }
 
-    items.forEach(item => {
+    items.forEach((item) => {
         const element = createItemElement(item);
         root.append(element);
     });
 }
 
-function setupCategoryListener(){
-    const dropdown =  document.getElementById("category-dropdown");
+function setupCategoryListener() {
+    const dropdown = document.getElementById("category-dropdown");
 
     dropdown.addEventListener('change', (event) => {
-        console.log(event.target.value);
-        //const result = document.querySelector('.result');
-        //result.textContent = `asd $(event.target.value)`;
+        selectedCategory = event.target.value;
+        createItems();
     });
 }
 
-function createItemElement(item){
+function createItemElement(item) {
     const anchor = document.createElement("a");
     anchor.href = `./item.html?title=${item.title}&cost=${item.price}&src=${item.imgSrc}`;
 
@@ -499,8 +499,7 @@ function createItemElement(item){
 }
 
 window.addEventListener("load", () => {
+    console.log("Document and itemslist.js loaded");
     createItems();
     setupCategoryListener();
-    //const app = document.getElementById("item-body");
-    //app.append(container);
 });
