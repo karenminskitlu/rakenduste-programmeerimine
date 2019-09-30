@@ -19,10 +19,20 @@ module.exports = {
     ],
     module: {
         rules: [{
-            test: /\.(js|jsx)$/,
-            exclude: /node_modules/,
-            use: 'babel-loader'
-        }]
+                enforce: 'pre',
+                test: /\.(js|jsx)$/,
+                exclude: /node_modules/,
+                loader: 'eslint-loader',
+                options: {
+                    failOnError: true,
+                },
+            },
+            {
+                test: /\.(js|jsx)$/,
+                exclude: /node_modules/,
+                use: 'babel-loader'
+            }
+        ]
     },
     devServer: {
         historyApiFallback: true,
