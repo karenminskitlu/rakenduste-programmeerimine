@@ -3,102 +3,102 @@ const utils = require("./utils.js");
 const mockItems = [{
     name: 'item1',
     cost: 728,
-    category: 'computer'
+    category: 'dreamcatcher'
   },
   {
     name: 'item2',
     cost: 413,
-    category: 'computer'
+    category: 'fairylights'
   },
   {
     name: 'item3',
     cost: 392,
-    category: 'phone'
+    category: 'dreamcatcher'
   },
   {
     name: 'item4',
     cost: 519,
-    category: 'phone'
+    category: 'dreamcatcher'
   },
   {
     name: 'item5',
     cost: 96,
-    category: 'phone'
+    category: 'dreamcatcher'
   },
   {
     name: 'item6',
     cost: 470,
-    category: 'computer'
+    category: 'fairylights'
   },
   {
     name: 'item7',
     cost: 506,
-    category: 'computer'
+    category: 'fairylights'
   },
   {
     name: 'item8',
     cost: 352,
-    category: 'phone'
+    category: 'fairylights'
   },
   {
     name: 'item9',
     cost: 948,
-    category: 'computer'
+    category: 'dreamcatcher'
   },
   {
     name: 'item10',
     cost: 62,
-    category: 'phone'
+    category: 'fairylights'
   },
   {
     name: 'item11',
     cost: 55,
-    category: 'computer'
+    category: 'dreamcatcher'
   },
   {
     name: 'item12',
     cost: 825,
-    category: 'computer'
+    category: 'dreamcatcher'
   },
   {
     name: 'item13',
     cost: 155,
-    category: 'computer'
+    category: 'fairylights'
   },
   {
     name: 'item14',
     cost: 388,
-    category: 'phone'
+    category: 'fairylights'
   },
   {
     name: 'item15',
     cost: 728,
-    category: 'phone'
+    category: 'fairylights'
   },
   {
     name: 'item16',
     cost: 533,
-    category: 'phone'
+    category: 'fairylights'
   },
   {
     name: 'item17',
     cost: 970,
-    category: 'computer'
+    category: 'dreamcatcher'
   },
   {
     name: 'item18',
     cost: 826,
-    category: 'computer'
+    category: 'fairylights'
   },
   {
     name: 'item19',
     cost: 266,
-    category: 'phone'
+    category: 'dreamcatcher'
   },
   {
     name: 'item20',
     cost: 362,
-    category: 'computer'
+    category: 'dreamcatcher'
   }
 ];
 
@@ -118,18 +118,18 @@ utils.test(sumOfCost(mockItems), 9594);
 /**
  * Task 2
  */
-const getPhones = items => {
-  let phones = [];
+const getDreamcatchers = items => {
+  let dreamcatchers = [];
   items.forEach(element => {
-    if (element.category == "phone") {
-      phones.push(element);
+    if (element.category == "dreamcatcher") {
+      dreamcatchers.push(element);
     }
   });
-  return phones;
+  return dreamcatchers;
 };
 
-utils.test(getPhones(mockItems).slice(-1)[0].name, "item19");
-utils.test(getPhones(mockItems).length, 9);
+utils.test(getDreamcatchers(mockItems).slice(-1)[0].name, "item19");
+utils.test(getDreamcatchers(mockItems).length, 9);
 
 /**
  * Task 3
@@ -143,9 +143,11 @@ class User {
   constructor() {
     this.items = [];
   }
+
   addToCart(item) {
     this.items.push(item);
-  }
+  };
+
   getCart() {
     return this.items;
   };
@@ -160,7 +162,7 @@ try {
 
   utils.test(cart.length, 2);
   utils.test(sumOfCost(cart), 509);
-  utils.test(getPhones(cart)[0].name, "item5")
+  utils.test(getDreamcatchers(cart)[0].name, "item5")
 } catch (e) {
   console.log("FAIL")
 }
