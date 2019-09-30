@@ -444,12 +444,12 @@ const fairyLights = [{
 const categories = {
     DREAMCATCHER: "dreamcatcher",
     FAIRYLIGHT: "fairyLight"
-}
+};
 
 let selectedCategory = categories.DREAMCATCHER;
 
 function createItems() {
-    const root = document.getElementById("item-list")
+    const root = document.getElementById("item-list");
 
     root.innerHTML = null; // reset
 
@@ -470,7 +470,7 @@ function createItems() {
 function setupCategoryListener() {
     const dropdown = document.getElementById("category-dropdown");
 
-    dropdown.addEventListener('change', (event) => {
+    dropdown.addEventListener("change", (event) => {
         selectedCategory = event.target.value;
         createItems();
     });
@@ -486,4 +486,4 @@ function setup(){
 
 module.exports = {
     setup,
-}
+};
