@@ -8,6 +8,7 @@ module.exports = {
             "version": "detect"
         }
     },
+    "parser": "babel-eslint",
     "parserOptions": {
         "ecmaVersion": 2019,
         "sourceType": "module"

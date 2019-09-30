@@ -1,8 +1,6 @@
 const path = require("path");
 const CopyPlugin = require("copy-webpack-plugin");
-const {
-    CleanWebpackPlugin
-} = require("clean-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
     mode: "none",
@@ -38,6 +36,9 @@ module.exports = {
         historyApiFallback: true,
         contentBase: path.join(__dirname, "dist"),
         compress: true,
-        port: 9000
+        port: 9000,
+        proxy: {
+            "/api": "http://localhost:3000"
+        }
     }
 };

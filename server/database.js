@@ -10,7 +10,7 @@ const getItems = () => {
             category: "dreamcatchers" // overwrites existing category
         });
     });
-    tvs.forEach((fairyLight, index) => {
+    fairyLights.forEach((fairyLight, index) => {
         fairyLights.push({
             ...fairyLight,
             id: "fairyLights-" + index,
