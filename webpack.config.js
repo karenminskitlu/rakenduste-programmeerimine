@@ -1,8 +1,6 @@
 const path = require("path");
 const CopyPlugin = require("copy-webpack-plugin");
-const {
-    CleanWebpackPlugin
-} = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
     mode: "none",
@@ -19,15 +17,28 @@ module.exports = {
     ],
     module: {
         rules: [{
-            test: /\.(js|jsx)$/,
-            exclude: /node_modules/,
-            use: 'babel-loader'
-        }]
+                enforce: "pre",
+                test: /\.(js|jsx)$/,
+                exclude: /node_modules/,
+                loader: "eslint-loader",
+                options: {
+                    failOnError: true,
+                },
+            },
+            {
+                test: /\.(js|jsx)$/,
+                exclude: /node_modules/,
+                use: "babel-loader"
+            }
+        ]
     },
     devServer: {
         historyApiFallback: true,
-        contentBase: path.join(__dirname, 'dist'),
+        contentBase: path.join(__dirname, "dist"),
         compress: true,
-        port: 9000
+        port: 9000,
+        proxy: {
+            "/api": "http://localhost:3000"
+        }
     }
 };
