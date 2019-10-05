@@ -8,7 +8,11 @@ const DB = require("./database.js");
  * GET all items
  */
 app.get("/api/items",(req, res)=>{
-    res.json(DB.getItems());
+    res.sendFile(path.resolve(__dirname, "../dist", "index.html"));
+});
+
+app.get("/items/*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "../dist", "index.html"));
 });
 
 /**
