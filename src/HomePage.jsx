@@ -49,7 +49,7 @@ class HomePage extends React.PureComponent{
             <>
                 <Header />
                 <select onChange={this.handleDropdown.bind(this)}>
-                    <option value="fairyLights">FairyLights</option>
+                    <option value="fairyLights">Fairy lights</option>
                     <option value="dreamcatchers">Dreamcatchers</option>
                 </select>
                 <ItemList items={this.getVisibleItems()}/>
@@ -57,4 +57,4 @@ class HomePage extends React.PureComponent{
         );
     }
 }
-export default HomePage; 
+export default HomePage;
