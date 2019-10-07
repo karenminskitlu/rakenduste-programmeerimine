@@ -5,14 +5,14 @@ import "./css/header.css";
 
 const Header = () => {
     return (
-        <div className="header">
+<div className="header">
             <Link to={"/"}>
-                <img className="header__logo" src="/images/logo.png" />
+                <img src="/images/logo.svg" /> {/* className="header__logo" */}
             </Link>
             <div className="header__buttons">
-            <div className={"header__button"}>
+                <div className={"header__button"}>
                     <img src={profileIcon} />
-                    <img src="/images/logo.svg" /> {/* className="header__logo" */}
+                    <div className={"header__button-text"}>Sign in/<br/>register</div>
                 </div>
                 <div className={"header__button"}>
                     <img src={cartIcon} />
