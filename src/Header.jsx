@@ -1,7 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom"; 
 import {profileIcon, cartIcon} from "./icons.js";
-import "./header.css";
+import "./css/header.css";
 
 const Header = () => {
     return (
@@ -12,7 +12,7 @@ const Header = () => {
             <div className="header__buttons">
             <div className={"header__button"}>
                     <img src={profileIcon} />
-                    <div className={"header__button-text"}>Sign in/<br/>Register</div>
+                    <img src="/images/logo.svg" /> {/* className="header__logo" */}
                 </div>
                 <div className={"header__button"}>
                     <img src={cartIcon} />
