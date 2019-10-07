@@ -1,6 +1,8 @@
 const path = require("path");
 const CopyPlugin = require("copy-webpack-plugin");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const {
+    CleanWebpackPlugin
+} = require("clean-webpack-plugin");
 
 module.exports = {
     mode: "none",
@@ -17,6 +19,10 @@ module.exports = {
     ],
     module: {
         rules: [{
+                test: /\.css$/i,
+                use: ["style-loader", "css-loader"],
+            },
+            {
                 enforce: "pre",
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
