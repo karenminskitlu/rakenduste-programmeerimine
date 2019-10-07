@@ -7,14 +7,16 @@ const getItems = () => {
         items.push({
             ...dreamcatcher,
             id: "dreamcatchers-" + index,
-            category: "dreamcatchers" // overwrites existing category
+            category: "dreamcatchers", // overwrites existing category
+            price: cleanPrice(dreamcatcher.price)
         });
     });
     fairylights.forEach((fairylight, index) => {
         fairylights.push({
             ...fairylight,
             id: "fairylights-" + index,
-            category: "fairylights" // overwrites existing category
+            category: "fairylights", // overwrites existing category
+            price: cleanPrice(fairylight.price)
         });
     });
     return items;
@@ -22,6 +24,12 @@ const getItems = () => {
 
 const getItem = (itemId) => {
     return getItems().find(item => item.id === itemId);
+};
+
+const cleanPrice = (dirty) => {
+    // Remove "to" and "$"
+    const parts = dirty.split("to");
+    return parts[0].replace("$", "");
 };
 
 module.exports = {
