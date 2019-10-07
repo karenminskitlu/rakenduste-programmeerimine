@@ -12,7 +12,7 @@ const getItems = () => {
         });
     });
     fairylights.forEach((fairylight, index) => {
-        fairylights.push({
+        items.push({
             ...fairylight,
             id: "fairylights-" + index,
             category: "fairylights", // overwrites existing category
