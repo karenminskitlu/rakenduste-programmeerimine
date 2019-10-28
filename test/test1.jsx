@@ -22,14 +22,19 @@ class LiveTest1 extends React.PureComponent {
   render(){
     return(
       <>
-        <div>Products below:</div>
-        <div>[replace me]</div>
+        <div>Products:</div>
+        <div>
+          {ITEMS.map((item, index) => (
+            <Item key={index} item={item} />
+            <div>{ITEMS.name}</div>
+            <div>{ITEMS.cost}</div>
+          ))}
+        </div>
         <hr/>
 
-        <div>Sum is [replace me] </div>
+        <div>Sum of items is {ITEMS.cost.sum} </div>
       </>
     );
   }
 }
-
 export default LiveTest1;
