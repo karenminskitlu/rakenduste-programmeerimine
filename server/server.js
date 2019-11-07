@@ -5,10 +5,10 @@ const PORT = process.env.PORT || 3000;
 const mongoose = require("mongoose");
 require("dotenv").config();
 
-const userRouter = require("./user.js");
+const itemRouter = require("./item.js");
 const DB_URL = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0-3oxqq.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;
 
-app.use(userRouter);
+app.use(itemRouter);
 app.use(express.static("dist"));
 
 function listen(){
