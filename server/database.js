@@ -6,7 +6,7 @@ const getItems = () => {
     dreamcatchers.forEach((dreamcatcher, index) => {
         items.push({
             ...dreamcatcher,
-            id: "dreamcatchers-" + index,
+            //id: "dreamcatchers-" + index,
             category: "dreamcatchers", // overwrites existing category
             price: cleanPrice(dreamcatcher.price)
         });
@@ -14,7 +14,7 @@ const getItems = () => {
     fairylights.forEach((fairylight, index) => {
         items.push({
             ...fairylight,
-            id: "fairylights-" + index,
+            //id: "fairylights-" + index,
             category: "fairylights", // overwrites existing category
             price: cleanPrice(fairylight.price)
         });
