@@ -81,5 +81,4 @@ function saveAllItems() {
             console.log("Save successful")
         });
     });
-    //console.log("items", items);
 }

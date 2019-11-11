@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import "./itempage.css";
 
 class ItemPage extends React.PureComponent{
     constructor(props){
@@ -12,12 +13,11 @@ class ItemPage extends React.PureComponent{
     }
 
     fetchItem = () => {
-        fetch(`/api/items/${this.props.match.params.itemId}`)
+        fetch(`/api/v1/items/${this.props.match.params.itemId}`)
         .then( res => {
             return res.json();
         })
         .then(item => {
-            console.log("item", item);
             this.setState({
                 ...item
             });
@@ -30,9 +30,13 @@ class ItemPage extends React.PureComponent{
         return (
             <>
                 <div className={"itemContainer"}>
-                    <img src={this.state.imgSrc} />
-                    <div className={"item__title"}>{this.state.title}</div>
-                    <div className={"item__price"}>{this.state.price}</div>
+                    <div className="left-column">
+                        <img src={this.state.imgSrc} />
+                    </div>
+                    <div className="right-column">
+                        <div className={"item__title"}>{this.state.title}</div>
+                        <div className={"item__price"}>{this.state.price}</div>
+                    </div>
                 </div>
             </>
         );

@@ -3,20 +3,21 @@ import {Link} from "react-router-dom";
 import {profileIcon, cartIcon} from "../icons.js";
 import "./header.css";
 import PropTypes from "prop-types";
+import authConsumer from "./authConsumer.jsx";
 
 const Header = ({user}) => {
     return (
-<div className="header">
+        <div className="header">
             <Link to={"/"}>
                 <img src="/images/logo.svg" /> {/* className="header__logo" */}
             </Link>
             <div className="header__buttons">
                 {user.email && <WelcomeIcon user={user}/>}
                 {!user.email && <LoginRegisterIcon />}
-                <div className={"header__button"}>
+                <Link to={"/checkout/cart"} className={"header__button"}>
                     <img src={cartIcon} />
                     <div className={"header__button-text"}>Cart</div>
-                </div>
+                </Link>
             </div>
         </div>
     );
@@ -45,4 +46,4 @@ WelcomeIcon.propTypes = {
     user: PropTypes.object.isRequired
 };
 
-export default Header; 
+export default authConsumer(Header); 
