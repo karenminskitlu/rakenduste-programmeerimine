@@ -6,6 +6,7 @@ import PropTypes from "prop-types";
 import authConsumer from "./authConsumer.jsx";
 
 const Header = ({user}) => {
+    console.log(user, "user");
     return (
         <div className="header">
             <Link to={"/"}>

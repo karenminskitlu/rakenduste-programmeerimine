@@ -34,6 +34,7 @@ class App extends React.Component {
     };
 
     render(){
+        console.log(this.state, "help");
         return(
             <AuthContext.Provider value={this.state}>
                 <BrowserRouter>

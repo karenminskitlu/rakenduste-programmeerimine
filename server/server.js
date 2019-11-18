@@ -78,7 +78,7 @@ function saveAllItems() {
                 console.log(err);
                 throw new Error("Item save error");
             }
-            console.log("Save successful")
+            console.log("Save successful");
         });
     });
 }

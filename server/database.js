@@ -35,4 +35,4 @@ const cleanPrice = (dirty) => {
 module.exports = {
     getItems,
     getItem
-} 
+};
