@@ -1,3 +1,21 @@
+body {
+    margin: 0;
+    font-weight: 300;
+}
+
+h2 {
+    font-weight: 400;
+    margin-top: 0;
+}
+
+.text--bold {
+    font-weight: 600;
+}
+
+.text--red {
+    color: #be0c0f;
+}
+
 .box {
     border-radius: 4px;
     padding: 15px;
@@ -9,4 +27,10 @@
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
+} 
+
+.hover--opacity:hover {
+    cursor: pointer;
+    opacity: 0.5;
+    transition: all .2s;
 } 
