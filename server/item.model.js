@@ -1,4 +1,4 @@
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
 
 const itemSchema = new mongoose.Schema({
     imgSrc: { type: String, required: true },

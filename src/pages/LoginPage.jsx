@@ -24,8 +24,12 @@ class LoginPage extends React.PureComponent {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(this.state)
-        }).then( res => res.json())
+        }).then( res => {
+            if(!res.ok) throw "Error";
+            return res.json();
+        })
         .then(({token, user}) => {
+            console.log(token, user, "help.2");
             this.props.onLogin({token, user});
             this.props.history.push(`/users/${user._id}`);
         }).catch(err => {
