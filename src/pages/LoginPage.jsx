@@ -1,12 +1,14 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import PropTypes from "prop-types";
+import {connect} from "react-redux";
+import { userUpdate } from "../store/actions";
 import "./form.css";
 
 class LoginPage extends React.PureComponent {
     static propTypes = {
         history: PropTypes.object.isRequired,
-        onLogin: PropTypes.func.isRequired,
+        dispatch: PropTypes.func.isRequired,
     };
     constructor(props){
         super(props);
@@ -24,18 +26,17 @@ class LoginPage extends React.PureComponent {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(this.state)
-        }).then( res => {
-            if(!res.ok) throw "Error";
-            return res.json();
-        })
-        .then(({token, user}) => {
-            console.log(token, user, "help.2");
-            this.props.onLogin({token, user});
-            this.props.history.push(`/users/${user._id}`);
-        }).catch(err => {
+        }).then( res => res.json())
+        .then(this.handleSuccess)
+        .catch(err => {
             console.log("Error", err);
         });
     }
+
+    handleSuccess = ({user}) => {
+        this.props.dispatch(userUpdate(user));
+        this.props.history.push(`/users/${user._id}`);
+    };
 
     handleChange = (e) => {
         this.setState({
@@ -68,4 +69,4 @@ class LoginPage extends React.PureComponent {
         );
     }
 }
-export default LoginPage; 
+export default connect()(LoginPage); 
