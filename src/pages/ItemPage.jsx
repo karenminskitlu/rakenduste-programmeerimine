@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-//import {connect} from "react-redux";
-//import {addItem} from "../store/cartActions";
 import FancyButton from "../components/FancyButton.jsx";
+import {connect} from "react-redux";
+import {addItem} from "../store/store";
 import "./itemPage.css";
 
 class ItemPage extends React.PureComponent{
@@ -31,8 +31,7 @@ class ItemPage extends React.PureComponent{
     }
 
     handleBuy = () => {
-        console.log("click", this.props);
-        /*this.props.dispatch(addItem(this.state));*/
+        this.props.dispatch(addItem(this.state._id));
     };
 
     render(){
@@ -73,9 +72,8 @@ class ItemPage extends React.PureComponent{
 
 ItemPage.propTypes = {
     match: PropTypes.object.isRequired,
-    //dispatch: PropTypes.func.isRequired,
+    dispatch: PropTypes.func.isRequired,
 };
 
-export default ItemPage;
-//export default connect()(ItemPage);
+export default connect()(ItemPage);
 const loremIpsum = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ut lacinia risus. In pulvinar erat a sollicitudin mollis. Suspendisse eget ornare quam, in viverra eros. Sed enim ex, convallis ac eros ut, mattis convallis metus. Vivamus quis bibendum nibh. Nulla suscipit pharetra posuere. Aliquam erat volutpat."; 
