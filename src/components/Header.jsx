@@ -9,7 +9,6 @@ import { UserPropTypes } from "../store/reducer.js";
 import * as selectors from "../store/selectors.js";
 
 const Header = ({user, cart}) => {
-    console.log(user, "user");
     return (
         <div className="header">
             <Link to={"/"}>
@@ -18,6 +17,7 @@ const Header = ({user, cart}) => {
             <div className="header__buttons">
                 {user && <WelcomeIcon user={user}/>}
                 {!user && <LoginRegisterIcon />}
+
                 <Link to={"/checkout/cart"} className={"header__button"}>
                     <img src={cartIcon} />
                     <div className={"header__button-text"}>Cart</div>
@@ -72,4 +72,4 @@ const mapStateToProps = (store) => {
     };
 };
 
-export default connect(mapStateToProps)(Header); 
+export default connect(mapStateToProps)(Header);
