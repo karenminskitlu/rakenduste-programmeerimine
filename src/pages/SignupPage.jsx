@@ -1,13 +1,14 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import PropTypes from "prop-types";
-import {toast} from "react-toastify";
 import "./form.css";
+import {toast} from "react-toastify";
 
 class SignupPage extends React.PureComponent {
     static propTypes = {
         history: PropTypes.object.isRequired,
     };
+
     constructor(props){
         super(props);
         this.state = {
@@ -24,10 +25,11 @@ class SignupPage extends React.PureComponent {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(this.state)
-            .then(res => {
-                if(!res.ok) throw "Signup failed";
-                return res.json();
-            })
+        })
+        .then(res => {
+            if(!res.ok) throw "Signup failed";
+            return res.json();
+        })
         .then(() => {
             this.props.history.push("/login");
             toast.success("Registreerumine oli edukas! :)");
@@ -58,4 +60,4 @@ class SignupPage extends React.PureComponent {
         );
     }
 }
-export default SignupPage; 
+export default SignupPage;
