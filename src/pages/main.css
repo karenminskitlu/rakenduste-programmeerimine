@@ -27,13 +27,13 @@ h2 {
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
-} 
+}
 
 .hover--opacity:hover {
     cursor: pointer;
     opacity: 0.5;
     transition: all .2s;
-} 
+}
 
 .display-flex-between {
     display: flex;
@@ -49,4 +49,4 @@ h2 {
     display: flex;
     font-size: 14px;
     align-items: center;
-} 
+}

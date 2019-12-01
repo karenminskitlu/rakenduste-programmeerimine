@@ -24,7 +24,10 @@ class SignupPage extends React.PureComponent {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(this.state)
-        }).then(res => res.json())
+            .then(res => {
+                if(!res.ok) throw "Signup failed";
+                return res.json();
+            })
         .then(() => {
             this.props.history.push("/login");
             toast.success("Registreerumine oli edukas! :)");

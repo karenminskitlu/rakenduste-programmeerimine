@@ -1,5 +1,9 @@
 import {
-    ITEMS_SUCCESS, ITEM_ADDED, ITEM_REMOVED, USER_UPDATE, TOKEN_UPDATE
+    ITEMS_SUCCESS,
+    ITEM_ADDED,
+    ITEM_REMOVED,
+    USER_UPDATE,
+    TOKEN_UPDATE
 } from "./actions.js";
 
 import PropTypes from "prop-types";
@@ -20,13 +24,13 @@ const initialState = {
 };
 
 export const reducer = (state = initialState, action) => {
-    switch (action.type){
-        case TOKEN_UPDATE: 
-        return {
-            ...state,
-            token: action.payload,
+    switch (action.type) {
+        case TOKEN_UPDATE:
+            return {
+                ...state,
+                token: action.payload,
 
-        };
+            };
         case USER_UPDATE:
             return {
                 ...state,
@@ -58,7 +62,7 @@ export const reducer = (state = initialState, action) => {
 
 const removeItemById = (items, _id) => {
     const index = items.findIndex(item => item._id === _id);
-    if(index === -1) return items;
+    if (index === -1) return items;
     const copy = items.slice();
     copy.splice(index, 1);
     return copy;
