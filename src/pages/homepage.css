@@ -14,8 +14,8 @@ h2 {
     font-weight: 600;
 }
 
-.text--red {
-    color: #ab0a0a;
+.text--blue {
+    color: rgb(120,229,233);
 }
 
 .box {

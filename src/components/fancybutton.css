@@ -1,5 +1,5 @@
 .btn.btn--fancy {
-  background: #d41d46;
+  background: rgb(120,229,233);
   font-size: large;
   text-transform: uppercase;
   color: white;
@@ -11,7 +11,7 @@
 
 .btn--fancy:hover {
   cursor: pointer;
-  background: #710920;
+  background: rgb(30,176,121);
   transition: all .2s ease-in-out;
 }
 

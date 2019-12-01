@@ -39,7 +39,7 @@
 }
 
 .header__button:hover {
-    color: #d41d46;
+    color: rgb(30,176,121);
 }
 
 .header__button-text {
@@ -50,7 +50,7 @@
 .badge {
     position: absolute;
     padding: 2px 6px;
-    background: #d41d46;
+    background: rgb(120,229,233);
     bottom: 21px;
     color: white;
     border-radius: 100%;
