@@ -7,17 +7,20 @@ import SortDropdown from "../components/SortDropdown.jsx";
 import {connect} from "react-redux";
 import {ItemProps} from "./CartPage.jsx";
 import {getItems} from "../store/actions.js";
+import * as selectors from "../store/selectors.js";
 
 class HomePage extends React.PureComponent{
+
     static propTypes = {
         dispatch: PropTypes.func.isRequired,
         items: PropTypes.arrayOf(PropTypes.shape(ItemProps)).isRequired,
     };
+
     constructor(props) {
         super(props);
         this.state = {
             sortDirection: -1,
-            allCategories: ["fairylights", "dreamcatchers"],
+            allCategories: ["dreamcatchers", "fairylights"],
             selectedCategories: ["fairylights"],
         };
     }
@@ -70,27 +73,29 @@ class HomePage extends React.PureComponent{
         const visibleItems = this.getVisibleItems();
         return (
             <>
-                    <div className={"body-wrapper"}>
-                        <div className={"filters-wrapper"}>
-                            <CategoriesFilter 
-                                allCategories={this.state.allCategories}
-                                handleDropdown={this.handleFilterSelect}
-                                isSelected={this.isSelected}
-                            />
-                        </div>
-                        <div className={"items-header-wrapper"}>
-                            <div>
-                                {visibleItems.length} items found for {this.state.selectedCategories.join(", ")}
-                            </div>
-                            <SortDropdown direction = {this.state.sortDirection} onChange = {this.handleSortDropdown} />
+            <div className={"hero"}></div>
+            <div style={{margin: "0px auto", maxWidth: "1000px"}}>
+                <div className={"display-flex-between box box--shadow"} style={{margin: "0.3em"}}>
+                    <div>
+                        <CategoriesFilter 
+                            allCategories={this.state.allCategories}
+                            handleDropdown={this.handleFilterSelect}
+                            isSelected={this.isSelected}
+                        />
                     </div>
-                    <ItemsList items={visibleItems}/>
+                    <div>
+                        {visibleItems.length} items found for {this.state.selectedCategories.join(", ")}
+                    </div>
+                    <div className={"custom-select-wrapper"} style={{marginLeft: "0.4em"}}>
+                        <SortDropdown direction = {this.state.sortDirection} onChange = {this.handleSortDropdown} />
+                    </div>
                 </div>
+                <ItemsList items={visibleItems}/>
+            </div>
             </>
         );
     }
 }
-
 const CategoriesFilter = ({allCategories, handleDropdown, isSelected}) => {
     return (
         <>
@@ -114,10 +119,9 @@ CategoriesFilter.propTypes = {
     handleDropdown: PropTypes.func.isRequired,
     isSelected: PropTypes.func.isRequired,
 };
-
 const mapStateToProps = (store) => {
     return {
-        items: store.items,
+        items: selectors.getItems(store)
     };
 };
-export default connect(mapStateToProps)(HomePage); 
+export default connect(mapStateToProps)(HomePage);

@@ -6,16 +6,49 @@ import FancyButton from "../components/FancyButton.jsx";
 import {connect} from "react-redux";
 import {removeItem} from "../store/actions.js";
 import {toast} from "react-toastify";
+import * as selectors from "../store/selectors.js";
+import * as services from "../services.js";
 
 class CartPage extends React.PureComponent {
     static propTypes = {
-        cart: PropTypes.arrayOf(PropTypes.shape(ItemProps)).isRequired,
+        cartItemIds: PropTypes.arrayOf(PropTypes.string).isRequired,
         dispatch: PropTypes.func.isRequired,
+    };
+
+    state = {
+        cartItems: [],
+    };
+
+    componentDidMount() {
+        this.fetchItems();
+    }
+
+    componentDidUpdate(prevProps) {
+        const prevPropIds = prevProps.cartItemIds.join("");
+        const currentIds = this.props.cartItemIds.join("");
+        if(prevPropIds !== currentIds) {
+            this.fetchItems();
+        }
+    }
+
+    fetchItems = () => {
+        const promises = this.props.cartItemIds.map(itemId => 
+            services.getItem({itemId})
+        );
+        Promise.all(promises).then(items => {
+            this.setState({
+                cartItems: items,
+            });
+        })
+        .catch(err => {
+            console.error(err);
+            toast.error("Failed to fetch items");
+        });
     };
 
     calcNumbers = () => {
         const VAT = 20;
-        const sum = Math.round(this.props.cart.reduce((acc, item) => acc + item.price, 0));
+        const sum = Math.round(this.state.cartItems.reduce((acc, item) => acc + item.price, 0));
         const tax = Math.round(sum / 100 * VAT); 
         return {
             sum, tax
@@ -24,7 +57,6 @@ class CartPage extends React.PureComponent {
 
     handleTrash = (_id) => {
         this.props.dispatch(removeItem(_id));
-        toast.success("Toode eemaldatud!");
     };
 
     render(){
@@ -34,7 +66,7 @@ class CartPage extends React.PureComponent {
                 <div className={"box cart"}>
                     <Table
                         onTrash={this.handleTrash}
-                        rows={this.props.cart}
+                        rows={this.state.cartItems}
                     />
                 </div>
                 <div className={"box cart__summary"}>
@@ -94,9 +126,9 @@ const Row = ({_id, title, imgSrc, category, price, onTrash}) => {
             </div>
             <div className={"cell cell--small cell--center"}>
                 <MdDelete 
-                        title={"Eemalda"} 
-                        className="hover--opacity" 
-                        onClick={() => onTrash(_id)}
+                    title={"Eemalda"} 
+                    className="hover--opacity" 
+                    onClick={() => onTrash(_id)}
                 />
             </div>
         </div>
@@ -109,15 +141,13 @@ export const ItemProps = {
     title: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
 };
-
 Row.propTypes = {
     ...ItemProps,
     onTrash: PropTypes.func.isRequired,
 };
-
 const mapStateToProps = (store) => {
     return {
-        cart: store.cart
+        cartItemIds: selectors.getCart(store)
     };
 };
-export default connect(mapStateToProps)(CartPage); 
+export default connect(mapStateToProps)(CartPage);
