@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import {MdDelete} from "react-icons/md";
 import "../components/cart.css";
-import FancyButton from "../components/FancyButton.jsx/index.js";
+import FancyButton from "../components/FancyButton.jsx";
 import {connect} from "react-redux";
 import {removeItem} from "../store/actions.js";
 import {toast} from "react-toastify";

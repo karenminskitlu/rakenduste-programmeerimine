@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { UserPropTypes } from "../store/reducer.js";
 import {connect} from "react-redux";
-import FancyButton from "../components/FancyButton.jsx/index.js";
+import FancyButton from "../components/FancyButton.jsx";
 import { userUpdate, tokenUpdate } from "../store/actions.js";
 import protectedRedirect from "../components/protectedRedirect.jsx";
 import * as selectors from "../store/selectors.js";
