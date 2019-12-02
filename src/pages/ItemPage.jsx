@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import FancyButton from "../components/FancyButton.jsx";
+import FancyButton from "../components/FancyButton.jsx/index.js.js";
 import {connect} from "react-redux";
 import {addItem} from "../store/actions.js";
 import "./itempage.css";
