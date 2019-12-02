@@ -5,7 +5,6 @@ const {
 } = require("clean-webpack-plugin");
 
 module.exports = {
-    mode: "none",
     entry: "./src/index.jsx",
     output: {
         path: path.resolve(__dirname, "dist"),
